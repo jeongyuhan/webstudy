@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>텍스트</title>
+    
+    <!-- 1) 웹 폰트를 위한 link (<head>내부 <style>외부에서 선언) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    
+    <style>
+        
+        /* 2) 웹 폰트를 위한 @import (link와 달리 <style> 내부에서 선언)) */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+        
+        p {
+            /* 1. 정렬 : left(왼쪽), right(오른쪽), center(가운데), justify(양쪽) */
+            /* 주의사항! : 인라인 요소는 정렬되지 않는다. */
+            text-align: left;
+            
+            /* 2. 행 높이(row height) */
+            line-height: 50px; /* 50px */
+            
+            /* 3. 들여쓰기 */
+            text-indent: 50px;
+            
+            /* 4. 밑줄(underline), 윗줄(overline), 취소선(line-through, 가운데줄) */
+            text-decoration: underline;
+            
+            /* 5. 그림자 */
+            /* text-shadow : 가로방향 세로방향 그림자번짐 그림자색 */
+            text-shadow: 5px 5px 1px silver, 3px 3px 1px yellow; 
+        }
+            /* a 태그는 디폴트를 없애준다. */
+            /* a 태그는 기본값이 밑줄을 포함하고 있기 때문에 없애준다. */
+            a {
+                color: black;
+                text-decoration: none;
+            }
+        
+        /* 인라인 요소는 블록 레벨에 적용되는 CSS속성을 처리하지 못한다. */
+        span {
+            text-align: center;
+        }
+        
+        pre {
+            /* 1. 크기 */
+            font-size: 20px;
+            
+            /* 2. 스타일 (기울임(italic), 오블리크(oblique, 잘안씀))*/
+            font-style: italic;
+            
+            /* 3. 굵기 조절 (lighter, normal, bold, bolder, 100~900(100단위)) */
+            font-weight: bolder;
+            
+            /* 4. 색상 */
+            /* 색상이 적힌 곳에 마우스 커서로 클릭하고 ctrl+E를 누르면 색상 설정을 할 수 있다. */
+            color: #a3ff15; /* 글자 색상 (색상명이 아닌 #_____으로 표기된 것을 RGB라고 한다.)*/
+            background-color: dimgray; /* 배경 색상 */
+            
+            /* 5. 글꼴 (시스템에 설치된 글꼴) */
+            /* 설치된 글꼴은 있으면 사용되고, 없으면 시스템 기본 글꼴이 사용된다. */
+            font-family: '맑은 고딕 굵게', sans-serif; /* sans-serif : 고딕 계열 */
+            
+            /* 6. 글꼴 (웹 폰트, 주로 사용) */
+            /*
+              방법.
+                1) link 태그를 추가하고 해당 font의 font-family를 지정
+                2) @import를 추가하고 해당 font의 font-family를 지정
+            */
+            font-family: 'Noto Sans KR', sans-serif;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <!-- p 태그는 "블록 레벨"이다. -->
+    <p>치키치키차카차카초코초코초 치키치키차카차카초코초코초 나쁜짓을 하면은 치키치키차카차카초코초코초 치키치키차카차카초코초코초 우리에게 들키지! 낮에도 밤에도 느낄 수 있는 눈과 귀가 있다네 우리의 손오공!</p>
+    
+    <!-- span 태그는 "인라인요소"이다. -->
+    <span>사랑하며 살면은 평화가 올거야~!</span>
+    
+    <br>
+        
+    <a href="https://www.naver.com">네이버로 가자!</a>
+    
+    <br>
+    
+    <pre>날아라 슈퍼보드!</pre>
+    
+</body>
+</html>

@@ -1,0 +1,8 @@
+/* import를 사용하여 Sunflower 글꼴을 사용하는 방법이다. */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Sunflower:wght@500&display=swap');
+
+
+/* link를 통하여 Nanum Brush Script 글꼴을 사용하는 방법이다. */
+p {
+    font-family: 'Nanum Brush Script', cursive;
+}

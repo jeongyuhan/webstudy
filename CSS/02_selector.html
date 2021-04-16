@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>selector(선택자)</title>
+    <style>
+        
+        /* 1. 전체 선택자(*) */
+        * {
+            color: aqua;
+        }
+        
+        
+        /* 2. 태그 선택자 */
+        h1 {
+            color: blueviolet;
+        }
+    
+        
+        /* 3. 그룹 선택자 */
+        h1,h2,h3,h4,h5 {
+            color: blue;
+        }
+        
+        
+        /* 4. 클래스 선택자 */
+        /* 반드시 점(.)을 붙여줘야한다. */
+        /* 동일한 클래스 대상에게 주는 방법 */
+        .red-style {
+            color: bisque
+        }
+        .mark-style {
+            background: silver;
+        }
+        
+        
+        /* 5. 아이디 선택자 */
+        /* 아이디 선택은 #으로 한다. */
+        /* 하나의 유니크한 대상(아이디는 중복x)을 선택하여 주는 방법 */
+        #big-title {
+            color: coral;
+        }
+        
+        #red {
+            color: red;
+        }
+        
+        #blue {
+            color: blue;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <!-- 문서내에서 id는 중복되지 않는다.  -->
+    <h1 id="big-title">날아라 슈퍼보드!</h1>
+    <h2>날아라 슈퍼보드!</h2>
+    <h3>날아라 슈퍼보드!</h3>
+    <h4>날아라 슈퍼보드!</h4>
+    <h5>날아라 슈퍼보드!</h5>
+    
+    <!-- 클래스를 2개 이상 줄 때는 공백으로 구분짓는다. -->
+    <p class="red-style mark-style">치키치키차카차카초코초코초!</p>
+    <p class="red-style">치키치키차카차카초코초코초!</p>
+    <p>치키치키차카차카초코초코초!</p>
+    
+    <p><span id="red">나쁜짓</span>을 하면은 우리에게 들키지!</p>
+    <p>나쁜짓을 하면은 <span id="blue">우리에게</span> 들키지!</p>
+    
+</body>
+</html>
