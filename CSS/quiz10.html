@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>네이버 : 로그인</title>
+    <style>
+        html, body {
+            /* 기본 초기화 */
+            margin: 0; /* 전체 화면을 쓰기위해 기본으로 들어가는 여백을 없애는 작업 */
+            padding: 0; /* 전체 화면을 쓰기위해 기본으로 들어가는 여백을 없애는 작업 */
+            height: 100%; /* 화면의 높이를 100% 모두 쓰겠다는 의미 */
+            font-family: Helvetica,Dotum,sans-serif;
+            background-color: #f5f6f7;
+        }
+        
+        /* container 작업 */
+        .container {
+            width: 768px;
+            margin: 0 auto; /* 화면을 가운데로 지정하기 위한 작업 */
+        }
+        
+        /* header 작업 */
+        header {
+            padding: 106px 0 53px; /* padding을 사용하여 로고의 영역을 키워주는 작업 */
+        }
+        
+        header > .big-naver-logo {
+            margin: 0 auto; /* header의 가운데로 오게 만드는 작업 */
+            width: 231px; /* 로고의 가로너비 지정 */
+            height: 44px; /* 로고의 세로높이 지정 */
+            background-image: url(images/naver.png); /* 저장되어있는 이미지사진 가져오는 작업 */
+            background-size: cover; /* 이미지사진이 로고가들어갈 영역보다 크기 때문에 이미지사진의 크기를 조정하는 작업*/
+            background-position: center; /* background에 불러온 이미지사진을 가운데 위치시키는 작업 */
+        }
+        
+        /* section 작업 */ 
+        section {
+            width: 460px;
+            margin: 0 auto;
+        }
+        
+        section > form > input {
+            width: 95%;
+            height: 48px;
+            padding: 5px 10px; /* input 안에 여백을 두어 클릭하여 글씨를 적을 경우 여백을두어 미적 효과를준다. */
+            margin-bottom: 5px;
+            font-size: 14px;
+            border: 2px solid #c2c2c2;
+        }
+        
+        section > form > input:focus {
+            outline: none; /* input의 기본설정된 바깥 테두리를 없애주는 작업 */
+            border: 2px solid #03c75a; /* 클릭하였을때 박스의 테두리색을 변하게 해주는 작업 */
+        }
+        
+        section > form > input[type=submit] {
+            width: 461px;
+            height: 60px;
+            margin: 12px 0 14px;
+            background-color: #03c75a;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700; /* 글씨의 두께(진함의 정도)를 바꿔주는 작업 */
+            border: none; /* 겉 테두리를 없애주는 작업 */
+        }
+        
+        .login-info {
+            width: 100%;
+            height: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e4e4e5;
+        }
+        
+        .login-info > .login-state {
+            float: left; /* login-info에서 왼쪽 끝에 위치시키는 작업 */
+        }
+        
+        .login-info > .login-ip {
+            float: right; /* login-info에서 오른쪽 끝에 위치시키는 작업 */
+        }
+        
+        .login-info > .login-ip > span {
+            font-weight: 900; /* 글씨의 굵기 조정하는 작업 */
+            color: #03c75a;
+        }
+        
+        .login-easy {
+            margin-top: 30px; /* 위 여백을 부여하는 작업 */
+        }
+        
+        .login-easy > p {
+            margin-bottom: 20px; /* 아래 여백을 부여하는 작업 */
+            font-size: 20px; /* 글씨크기를 조정하는 작업 */
+            font-weight: 700; /* 글씨굵기를 조정하는 작업 */
+            letter-spacing: -.8px; /* 글씨간격을 조정하는 작업 */
+            text-align: center; /* 글씨를 중간에 위치시키는 작업 */
+        }
+        
+        .login-easy-sub {
+            display: flex;
+            justify-content: space-between; /* 주축의 간격을 벌리는 작업 */
+            
+        }
+        
+        .login-easy-button {
+            width: 48%;
+            height: 56px;
+            border: 1px solid #03c75a;
+            background-color: #ffffff;
+        }
+        
+        .login-easy-button > button {
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            outline: none; /* 클릭을 했을때 버튼인지 알 수 있는 기본값을 없애주는 작업 */
+            border: none; /* 기본 button에 포함되어있는 border박스를 없애주는 작업 */
+            z-index: 1; /* 두개의 div가 겹쳐있기 때문에 앞에 위치할 수 있도록 값을 부여한다. */
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: -.6px; /* 글자 간격을 늘리거나 줄여주는 작업 */    
+            cursor: pointer;
+        }
+        
+        .find-info {
+            padding-top: 18px; /* 상단 여백을 주는 작업 */
+            text-align: center; /* text의 위치를 중간으로 옮겨주는 작업 */
+            color: #8e8e8e; /* 글자색을 주는 작업 */
+            font-size: 14px; /* 글자크기를 지정하는 작업 */
+        }
+        
+        /* aside 작업 */
+        .banner {
+            margin: 50px auto 40px; /* 위 좌/우 아래 순서로 여백을 주는 작업 */
+            max-width: 460px;
+            width: 100%;
+            height: 147px;
+            background-image: url(https://ssl.pstatic.net/static/nid/login/m_920_294_210308.png); 
+            /* 뒷배경에 url을 지정하여 이미지를 적용시키는 작업 */
+            background-size: cover; /* 뒷배경 사진의 파일크기를 자동으로 맞춰주는 작업 */
+            background-repeat: no-repeat;
+        }
+        
+        /* footer 작업 */
+        footer {
+            width: 100%;
+            text-align: center;
+        }
+        
+        footer > .naver-info {
+            font-size: 12px; /* 글씨 크기는 기본값이 16px이다. */
+        }
+        
+        footer > .company-info {
+            font-size: 9px;
+            display: flex; /* company-info에 있는 두 요소를 한줄에 출력시키기위한 작업 */
+            justify-content: center;
+        }
+        
+        footer > .company-info > .small-naver-logo {
+            margin-top: 4px;
+            margin-right: 5px;
+            width: 50px;
+            height: 20px;
+            background-image: url(images/naver.png);
+            background-size: cover;
+            background-position: center; 
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 전체 컨테이너 -->
+    <div class="container">
+        <!-- 네이버 로고 영역 header -->
+        <header>
+            <!-- 로고 -->
+            <div class="big-naver-logo"></div>
+        </header>
+        <!-- 본문 영역 section -->
+        <section>
+            <!-- 아이디 비밀번호 로그인 버튼 -->
+            <form action="https://nid.naver.com/nidlogin.login" method="post">
+                <input type="text" placeholder="아이디">
+                <span id="input-id-check"></span>
+                <input type="password" placeholder="비밀번호">
+                <span id="input-password-check"></span>
+                <input type="submit" value="로그인">
+            </form>
+            <!-- 로그인 상태 유지, IP보안 -->
+            <article class="login-info">
+                <!--로그인 상태 유지-->
+                <div class="login-state">◎ 로그인 상태 유지</div>
+                <!-- IP보안 -->
+                <div class="login-ip">IP 보안 <span>ON</span></div>
+            </article>
+            <!-- 더욱 간편한 로그인 -->
+            <article class="login-easy">
+                <!-- 제목 -->
+                <p>더욱 간편한 로그인</p>
+                <!-- QR코드 로그인, 일회용 번호 로그인 -->
+                <div class="login-easy-sub">
+                    <!-- QR코드 로그인 -->
+                    <div class="login-easy-button">
+                        <button>QR코드 로그인</button>
+                    </div>
+                    <!-- 일회용 번호 로그인 -->
+                    <div class="login-easy-button">
+                        <button>일회용 번호 로그인</button>
+                    </div>
+                </div>
+            </article>
+            <!-- 아이디 찾기, 비밀번호 찾기, 회원가입 -->
+            <article class="find-info">
+                <a>아이디 찾기</a> | <a>비밀번호 찾기</a> | <a>회원가입 찾기</a>
+            </article>
+        </section>
+        <!-- 광고 배너 -->
+        <aside>
+            <div class="banner">
+            </div>
+        </aside>    
+        <!-- 이용약관 | 개인정보처리방침 등.. -->
+        <footer>
+            <p class="naver-info">
+                <a>이용약관</a>|<a><strong>개인정보처리방침</strong></a>|
+                <a>책임의 한계와 법적고지</a>|<a>회원정보 고객센터</a>
+            </p>
+            <div class="company-info">
+                <div class="small-naver-logo"></div>
+                <p>Copyright &copy; <strong>NAVER Corp.</strong> ALL Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+    
+</body>
+</html>
