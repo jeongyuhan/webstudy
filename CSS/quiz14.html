@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>quiz14</title>
+    <style>
+        div {
+            box-sizing: border-box;
+        }
+        
+        .container {
+            width: 960px;
+            margin: 0 auto; /* 가운데 정렬 */
+        }
+        
+        .product-list {
+            width: 100%;
+            display: flex;
+            justify-content: space-between; /* 가로 정렬한 것들의 사이를 띄워주는 작업 */
+        }
+        
+        .product {
+            position: relative; 
+        }
+        
+        .product > img {
+            width: 300px;
+            height: 200px;
+            z-index: 1; /* 이미지를 뒤로 보내기 위해 product-description 보다 z-index를 낮게 준다.  */
+        }
+        
+        .product > .product-description {
+            width: 300px;
+            height: 200px;
+            background-color: rgba(0, 0, 0, 0.5); /* 백그라운드에 투명도를 주는 방법 (각 색상 값 : 0~255, 투명도 : 0~1)*/
+            border: 1px solid black;
+            z-index: 2; /* 설명을 앞으로 보내기 위해 img보다 z-index를 높게 준다. */
+            position: absolute;
+            top: 200px;
+            text-align: center; /* 텍스트를 box 중간에 위치 */
+            color: white;
+            padding-top: 20px;
+            /* opacity: 0; 투명도를 주어 안보이게 만드는 방법 */
+            display: none; /* opecity와 유사한 역할을 수행하여 처리하는 방식 */
+            transition-property: all; /* opecity, transform을 모두 적용시키기위해 all을 사용 */
+            transition-duration: 1s;
+            transition-timing-function: ease-out; 
+        }
+        
+        .product > img:hover + .product-description { /* img에 마우스를 가져다대면 product-description이 작동한다는 의미 */
+            /* opacity: 1; 투명도를 없애주고 보이게 만든다. */
+            display: block; /* opecity와 유사한 역할을 수행하여 처리하는 방식 */
+            transform: translateY(-200px); /* 위로 200px 올라간다.  */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product-list">
+            <div class="product">
+                <img alt="제품1 이미지" src="images/fruit1.jpg">
+                <div class="product-description">
+                    <h1>과일1</h1>
+                    <p>맛있는 과일</p>
+                    <p>가격 : 10,000원</p>
+                </div>
+            </div>
+              <div class="product">
+                <img alt="제품2 이미지" src="images/fruit2.jpg">
+                <div class="product-description">
+                    <h1>과일2</h1>
+                    <p>달콤한 과일</p>
+                    <p>가격 : 20,000원</p>
+                </div>
+            </div>
+              <div class="product">
+                <img alt="제품3 이미지" src="images/fruit3.jpg">
+                <div class="product-description">
+                    <h1>과일3</h1>
+                    <p>상큼한 과일</p>
+                    <p>가격 : 30,000원</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
