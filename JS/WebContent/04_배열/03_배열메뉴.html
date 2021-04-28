@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+	
+		ul {
+			width: 100%;
+			border: 1px solid black;
+			list-style-type: none;
+			overflow: hidden;  /* 자식의 정렬을 하기위해 부모에 overflow: hidden */
+		}
+		
+		li {
+			width: 100px;
+			height: 45px;
+			border: 1px solid red;
+			float: left; /* 부모태그(ul)에 overflow:hidden이 적용되어 있기 때문에 float: left를 통해 왼쪽 정렬이 가능해진다. */ 
+		}
+		
+		a {
+			background-color: yellow;
+			display: block; 
+			width: 100%;
+			height: 45px;
+			text-align: center; /* 가로 가운데 정렬 */
+			line-height: 45px;  /* 세로 가운데 정렬 */
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li><a href="javascript:void(0)">사전</a></li>
+		<li><a href="javascript:void(0)">뉴스</a></li>
+		<li><a href="javascript:void(0)">증권</a></li>
+		<li><a href="javascript:void(0)">부동산</a></li>
+		<li><a href="javascript:void(0)">지도</a></li>
+	</ul>
+	<header>
+		<div class="gnb"></div>
+	</header>
+	<script>
+		var menu = ['메일', '카페', '블로그', '쇼핑', 'Pay'];
+		var ul = document.createElement('ul');
+		document.getElementsByClassName('gnb')[0].appendChild(ul); /* 클래스는 여러개가 존재할 수 있다. 그중 첫번째를 뜻하는 인덱스[0]을 사용하여주어야한다. */
+		for(let i = 0; i < menu.length; i++) {
+			var a = document.createElement('a');
+			a.textContent = menu[i]; /* a태그 내부에 내용은 menu배열의 요소 각각하나씩 넣어준다. */
+			a.setAttribute('href', 'javascript:void(0)'); /* href 속성과 그에 맞는 값을 넣어준다. */
+			var li = document.createElement('li');
+			li.appendChild(a);
+			ul.appendChild(li);
+		}
+	</script>
+</body>
+</html>

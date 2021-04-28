@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script>
+		
+	</script>	
+</head>
+<body>
+	<h1 id="title" class="hello">안녕하세요</h1>
+	<div id="container" class="wrap">
+		<div id="box1" class="box">박스1</div>
+		<div id="box2" class="box">박스2</div>
+		<div id="box3" class="box">박스3</div>
+	</div>
+	<script>
+		/* <h1 id="title" class="hello">안녕하세요</h1> 선택하는 방법 */
+		document.getElementById('title');
+		document.getElementsByTagName('h1')[0]; // 인덱스를 설정해줘야한다. [0] 첫번째 h1
+		document.getElementsByClassName('hello')[0]; // 인덱스를 설정해줘야한다. [0] 첫번째 h1
+		document.querySelector('#title');
+		document.querySelectorAll('h1')[0];
+		document.querySelectorAll('.hello')[0];
+		
+		console.log(document.getElementById('title'));
+		console.log(document.getElementsByTagName('h1')[0]);
+		console.log(document.getElementsByClassName('hello')[0]);
+		console.log(document.querySelector('#title'));
+		console.log(document.querySelectorAll('h1')[0]);
+		console.log(document.querySelectorAll('.hello'));
+		
+		// 1. 삭제할 요소 알아내기 
+		var deleteElement = document.getElementById('title');
+		// 2. 요소 삭제
+		document.body.removeChild(deleteElement);
+		// deleteElement.parentNode.removeChild(deleteElement);
+		
+		// 문제) 박스3 삭제하기
+		// 1. 삭제할 요소 알아내기
+		var deletebox = document.getElementById('box3');
+		// 2. 요소 삭제
+		deletebox.parentNode.removeChild(deletebox);
+		document.getElementById('container').removeChild(deletebox);
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<ul>
+		<li>라면</li>
+		<li>우동</li>
+		<li>김밥</li>
+		<li>튀김</li>
+		<li>순대</li>
+	</ul>
+	<script>
+		// 입력 받은 메뉴를 삭제하자.
+		var deleteMenu = prompt('삭제할 메뉴를 입력해주세요.');
+		var liList = document.getElementsByTagName('li'); /* li를 tag명으로 찾게되면 여러개이기 때문에 유사배열의 형태로 나온다. */ 
+		
+		for (let i = 0; i < liList.length; i++) { /* liList는 유사배열이기 때문에 길이가 존재한다. */
+			if(liList[i].textContent == deleteMenu) { /* liList배열의 각 인덱스별 내용이 입력한 deleteMenu와 같으면 */
+				document.getElementsByTagName('ul')[0].removeChild(liList[i]); /* 부모를 찾고 삭제 코드를 통해 입력된 liList를 삭제한다. */
+				alert(deleteMenu + '이(가) 삭제되었습니다.');
+				break;
+			}
+		}
+	</script>
+</body>
+</html>

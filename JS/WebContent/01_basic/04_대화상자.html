@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script>
+		// 1. 경고창
+		// alert('경고메시지');
+		
+		// 2. 확인창
+		// a = confirm('확인메시지'); // '확인'버튼을 클릭하면 true반환, '취소'버튼을 클릭하면 false를 반환한다. 
+		// console.log(a);
+		
+		// 3. 입력창
+		// b = prompt('입력메시지'); // 입력된 내용을 반환
+		// console.log(typeof b);	  // 입력된 내용의 타입은 무조건 String이다.
+		// console.log(b);
+		
+		// 문제1) 이름을 입력 받아서 "내 이름은 xxx 입니다." 출력
+		var name = prompt('이름을 입력해주세요.');
+		alert('내 이름은' + name + '입니다.');
+		
+		// 문제2) 나이를 입력 받아서 "(성인 또는 미성년자)이고, 내년 나이는 xx살입니다." 출력
+		var age = prompt('나이를 입력해주세요.');
+		var gubun = age >= 20 ? '성인' : '미성년자';
+		var nextAge = parseInt(age) + 1; // prompt에 의해 age가 String타입이 되었기 때문에 + 연산이 연결로 작용한다. 
+		           // Number(age) + 1;   // 따라서 형변환을 통해 age를 다시 숫자(정수)로 바꿔주어야 한다.
+		alert(gubun + '이고, 내년 나이는 ' + nextAge + '살입니다.');
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="one-to-ten"></div>
+	<script>
+		/* var n = 1;
+		var result = '';
+		while (n <= 10) {
+			result += n + '<br>';
+			n++;
+		}
+			document.getElementById('one-to-ten').innerHTML = result; */
+		
+		var n = 1;
+		while (n <= 10) {
+		document.getElementById('one-to-ten').innerHTML += n + '<br>';
+			n++;
+		}
+	</script>
+	<div id="list1"></div>
+	<script>
+		var ul = document.createElement('ul');
+		document.getElementById('list1').appendChild(ul);
+		var n = 1;
+		while (n <= 5 ) {
+			var li = document.createElement('li');
+			li.textContent = n;
+			ul.appendChild(li);
+			n++;
+		} 
+		/* 
+		var result = '<ul>';
+		var n = 1;
+		while (n <= 5) {
+			result += '<li>' + n + '</li>'; // </li>는 생략해도 상관없다.
+			n++;
+		}
+		result += '</ul>'; // </ul>은 생략해도 상관없다.
+		document.getElementById('list1').innerHTML = result; 
+		*/
+	</script>
+	<div id="select1"></div>
+	<script>
+		var select = document.createElement('select'); // <select></select>
+		select.setAttribute('name', 'mm'); // <select name="mm"></select>
+		var m = 1;
+		while (m <= 12) {
+			var option = document.createElement('option'); // <option></option>
+			option.setAttribute('value', m); // <option value="m"></option>
+			option.textContent = m + '월'; // <option value="m">m</option>
+			select.appendChild(option);
+			m++
+		}
+		document.getElementById('select1').appendChild(select);
+		
+		/* 
+		var result = '<select name="mm">'; 
+		var m = 1;
+		while (m <= 12) {
+			result += '<option value="'+ m +'">' + m + '월';
+			m++;
+		}
+		document.getElementById('select1').innerHTML = result; 
+		*/
+	</script>
+	<div id="dial"></div>
+	<script>
+	
+			var caption = document.createElement('caption');
+			caption.textContent = '다이얼';
+			document.getElementById('dial').appendChild(caption);
+			caption.setAttribute('id', 'caption'); 
+			
+			var table = document.createElement('table');
+			document.getElementById('dial').appendChild(table);
+			table.setAttribute('id', 'table');
+			
+			var tr = document.createElement('tr');
+			document.getElementById('table').appendChild(tr);
+			tr.setAttribute('id', 'tr1'); 
+		
+			var n = 1;
+			while(n <= 3) {
+				var td = document.createElement('td');
+				td.setAttribute('class', 'td');
+				td.textContent = n;
+				tr1.appendChild(td);
+				n++;
+			}
+			
+			var tr = document.createElement('tr');
+			document.getElementById('table').appendChild(tr);
+			tr.setAttribute('id', 'tr2'); 
+			
+			var m = 4;
+			while(m <= 6) {
+				var td = document.createElement('td');
+				td.setAttribute('class', 'td');
+				td.textContent = m;
+				tr2.appendChild(td);
+				m++;
+			}
+			
+			var tr = document.createElement('tr');
+			document.getElementById('table').appendChild(tr);
+			tr.setAttribute('id', 'tr3'); 
+			
+			var o = 7;
+			while(o <= 9) {
+				var td = document.createElement('td');
+				td.setAttribute('class', 'td');
+				td.textContent = o;
+				tr3.appendChild(td);
+				o++;
+			}
+			
+			var tr = document.createElement('tr');
+			document.getElementById('table').appendChild(tr);
+			tr.setAttribute('id', 'tr4'); 
+			tr.setAttribute('class', 'td');
+			var w = 10;
+			while(w <= 12){
+				var td = document.createElement('td');
+				td.setAttribute('id', w);
+				if(w == 10) {
+					td.textContent = '*';
+				} else if(w == 11) {
+					td.textContent = 0;
+				} else {
+					td.textContent = '#';
+				}
+				tr4.appendChild(td);
+				w++;
+			}
+			
+			var div = document.getElementById('dial');
+			div.style.width = '150px';
+			div.style.height = '200px';
+			div.style.margin = '0 auto';
+			
+			var caption = document.getElementById('caption');
+			caption.style.width = '100%';
+			caption.style.float = 'left';
+			caption.style.textAlign = 'center';
+			caption.style.color = 'red';
+			caption.style.marginBottom = '5px';
+			
+			var table = document.getElementById('table');
+			table.style.width = '100%';
+			table.style.boxSizing = 'borderBox';
+			table.style.textAlign = 'center';
+			table.style.border = '1px solid black';
+			table.borderCollapse = 'collapse';
+			
+			var col = document.getElementsByClassName('td');
+			col.style.width = '50px';
+			col.style.height = '50px';
+			col.style.border = '1px solid black';
+	</script>
+	
+	
+</body>
+</html>
