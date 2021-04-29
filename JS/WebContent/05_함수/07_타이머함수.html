@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script>
+		/* 
+			1. 한 번만 실행하는 setTimeout 
+				1) setTimeout(함수, 밀리초);
+				2) var id = setTimeout(함수, 밀리초); // id는 setTimeout() 함수의 식별자이다.
+				   clearTimeout(id); // setTimeout() 함수의 동작 취소를 처리하기위해 식별자를 주는 방법을 사용하는 경우가 있다.
+				   
+			2. 반복 실행하는 setInterval
+				1) setInterval(함수, 밀리초); // 타이머함수를 종료할 생각이 없으면 식별자를 부여하지 않고 생성한다.
+				2) var id = setInterval(함수, 밀리초);
+				   clearInterval(id); // setInterval() 함수의 동작 취소
+		*/
+		/* 
+		// 5초 후에 터지는 폭탄!
+		// 1) 식별자가 없는 setTimeout() 
+		setTimeout(function(){
+			alert('펑!');
+		}, 5000);
+		
+		// 2) 식별자가 있는 setTimeout()
+		var boom = setTimeout(function(){
+			document.write('<h1>펑!');
+		}, 5000);		   
+		
+		if(confirm('폭탄 해제를 원하면 5초안에 확인을 누르시오')) {
+			clearTimeout(boom);
+		}
+	 	*/	
+		
+		// 5초 타이머 폭탄! (5 -> 4 -> 3 -> 2 -> 1 -> 펑)
+		/* 
+		var countdown = 5;
+		var boom2 = setInterval(function(){
+			if(countdown == 0) {
+				document.write('펑');
+				clearInterval(boom2);
+			} else {
+				document.write(countdown-- + '&nbsp;->&nbsp;');
+			}
+		}, 1000);
+		 */
+		// 5초 타이머 폭탄! (5 -> 4 -> 3 -> 2 -> 1 -> 펑)
+		var countdown = 5;
+		function timerBoom() {
+			setTimeout(function(){
+				if(countdown == 0) {
+					document.write('boom!');
+					//return; // timerBoom() 함수 종료
+				}
+				document.write(countdown-- + '&nbsp;->&nbsp;');
+				timerBoom(); // 자기 호출 함수(재귀 호출)
+			}, 1000);
+		}		
+		timerBoom();
+		
+	</script>
+</head>
+<body>
+</body>
+</html>

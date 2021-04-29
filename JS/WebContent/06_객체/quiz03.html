@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script>
+		/* 
+			생성자 함수 Student를 구현하시오.
+			1. 매개변수 : name, kor, eng, mat
+			2. 프로퍼티 : name, kor, eng, mat, getAverage, getGrade
+		*/	
+		
+		function Student(name, kor, eng, mat) {
+				this.name = name;
+				this.kor = kor;
+				this.eng = eng;
+				this.mat = mat;
+				this.__proto__.getAverage = function() {
+					return (this.kor + this.eng + this.mat) / 3;
+				}
+				this.__proto__.getGrade = function(){
+					var grade;
+					if(this.getAverage() > 90) {
+						grade = 'A';
+					} else if (this.getAverage() > 80) {
+						grade = 'B';
+					} else if (this.getAverage() > 70) {
+						grade = 'C';
+					} else if (this.getAverage() > 60) {
+						grade = 'D';
+					} else {
+						grade = 'F';
+					}
+					return grade;
+				}
+			}
+	
+		students = [
+			new Student('브레드', 90, 98, 95),
+			new Student('엘리스', 80, 87, 89),
+			new Student('월터', 70, 78, 74)
+		];
+		
+		for(let i = 0; i < students.length; i++){
+		// 방법 1)	
+			with(students[i]) { // 각각 콘솔에 붙이지 않고, 지금부터 실행되는 것들은 모두 students[i] 이다.
+				console.log('이름 : ' + name);				
+				console.log('국어 : ' + kor);				
+				console.log('영어 : ' + eng);				
+				console.log('수학 : ' + mat);				
+				console.log('평균 : ' + getAverage());				
+				console.log('학점 : ' + getGrade());				
+			}
+		
+		// 방법 2)
+		for(let p in students[i]) {
+			if(p == 'getAverage' || p == 'getGrade') {
+				console.log(students[i][p]);
+			} else {
+				console.log(students[i][p]);
+			}
+		}
+		}
+		
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>
