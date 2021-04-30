@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		
+		#container {
+			margin:0 auto;
+			width: 700px;
+			border: 1px solid black;
+		}
+		
+		#image-box {
+			padding: 10px;
+			width: 100%;
+		}
+		
+		#image {
+			width: 100%;
+			height: 420px;
+		}
+		
+		#nav-box {
+			margin: 0 auto;
+			width: 120px;
+			display: flex;
+			justify-content: space-between;
+		}
+		
+		#prev, #next, #image-no {
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+		}
+		
+		#prev:active, #next:active {
+			color: orange;
+		}
+		
+		#prev:hover, #next:hover {
+			cursor: pointer;
+		}
+		
+	</style>
+	<script>
+		onload = function(){
+			// 이미지를 저장한 배열
+			var images = ['apple.jpg', 'cat.jpg', 'dog.jpg', 'eagle.jpg', 'frog.jpg', 'lion.jpg', 'hedgehog.jpg', 'blackboard.jpg', 'vase.jpg'];
+			// 이미지를 저장한 배열의 인덱스
+			var image_idx = 0;
+			
+			// 번호 표시 코드
+			var image_no = document.getElementById('image-no');
+			function changeImageNo(){
+			image_no.textContent = (image_idx + 1) + ' / ' + images.length;				
+			}
+			changeImageNo(); // 페이지 로드할 때 번호를 표시해줄 수 있도록 한번 호출을 해둔다.
+			
+			// 버튼을 눌렀을 때 사진이 넘어가는 코드 구현
+			var prev = document.getElementById('prev');
+			var next = document.getElementById('next');
+			var image = document.getElementById('image');
+			prev.addEventListener('click', function(){
+				changeImage(-1);
+			});
+			
+			next.addEventListener('click', function(){
+				changeImage(1);
+			});
+			
+			function changeImage(n) {
+				image_idx += n;
+				if(image_idx == images.length) { // 마지막 image에서 next 버튼을 누르면 첫번째 image를 출력하는 코드 구현
+					image_idx = 0;
+				} 
+				if(image_idx < 0) { // 첫번째 image에서 prev 버튼을 누르면 마지막 image를 출력하는 코드 구현
+					image_idx = images.length -1;
+				}
+				image.setAttribute('src', '../images/' + images[image_idx]);
+				changeImageNo();
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="container">
+		<!-- 이미지 -->
+		<div id="image-box">
+			<img src="../images/apple.jpg" id="image">
+		</div>
+		<!-- 번호 -->
+		<div id="nav-box">
+			<div id="prev"><i class="fas fa-backward"></i></div>
+			<div id="image-no"></div>
+			<div id="next"><i class="fas fa-forward"></i></div>
+		</div>
+	</div>
+</body>
+</html>

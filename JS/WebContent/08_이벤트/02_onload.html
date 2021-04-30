@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script>
+	
+		// onload : HTML문서(body)를 모두 읽은 뒤에 
+		// script가 head쪽에 배치되면 onload가 주로 사용된다.
+		// 모든 명령문들이 문서가 모두 읽힌 뒤에 실행되기 때문에 실행 순서에 구애받지않고 정상적으로 실행된다.  
+		window.onload = function(){
+			document.getElementById('box').textContent = '나는 박스다.';			
+		}
+		
+		// 위 코드를 표준 이벤트 모델로 작성해보면 아래와 같다. (onload의 경우 '고전 이벤트 모델'로 대부분 작성한다.)
+		window.addEventListener('load', function(){			
+			document.getElementById('box').textContent = '나는 박스다.';			
+		});
+		
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>
